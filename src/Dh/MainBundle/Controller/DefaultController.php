@@ -12,6 +12,12 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('DhMainBundle:Dash:index.html.twig');
+      //Get logged in username.
+      $username = $this->getUser();
+
+      //Renders template
+      return $this->render('DhMainBundle:Dash:index.html.twig',array(
+        'username' => $username,
+      ));
     }
 }
