@@ -5,11 +5,9 @@ namespace Dh\MainBundle\Service;
 class FlickrApi{
   public function getPhotos($apiKey, $userID){
     //Variables
-    //$apiKey = '5d87db687e7084fdb203ee90f38bc0c0';
     $apikey = $apiKey;
     $secret = '2b74f4d773523284';
     $userId = $userID;
-    //$userID = '75617896%40N08';
     $url = 'https://api.flickr.com/services/rest/?method=flickr.people.getPhotos';
     $url.= '&api_key='.$apikey;
     $url.= '&user_id='.$userId;

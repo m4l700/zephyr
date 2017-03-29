@@ -14,6 +14,30 @@
         <link rel="stylesheet" href="https://rawgit.com/enyo/dropzone/master/dist/dropzone.css">
     </head>
     <body>
+        <style>
+        #page-wrapper {
+            background-color: #ececec;
+        }
+        .navbar-inverse {
+            background-color: #444a4e;
+            border-color: #080808;
+        }
+        nav.navbar.navbar-inverse.navbar-fixed-top a {
+            color: white;
+        }
+        .side-nav{
+            background-color: #337ab7;
+        }
+        ul.nav.navbar-nav.side-nav a {
+            color: white !important;
+        }
+        nav.navbar.navbar-inverse.navbar-fixed-top {
+            box-shadow: 0px -1px 13px #505050;
+        }
+        ul.dropdown-menu li a {
+            color: black !important;
+        }
+        </style>
         {% block body %}{% endblock %}
         {% block javascripts %}
         <script src="https://rawgit.com/enyo/dropzone/master/dist/dropzone.js"></script>
