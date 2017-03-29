@@ -1,0 +1,43 @@
+{% block navbarside %}
+<!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav side-nav">
+                <li class="active">
+                    <a href="/"><i class="fa fa-fw fa-dashboard"></i> Main Dashboard</a>
+                </li>
+                <li>
+                    <a href="{{ path('dh_main_default_index') }}"><i class="fa fa-fw fa-bar-chart-o"></i> Upload</a>
+                </li>
+                <li>
+                    <a href="{{ path('dh_main_default_photos') }}"><i class="fa fa-fw fa-table"></i> Photo's</a>
+                </li>
+                <li>
+                    <a href="{{ path('dh_main_default_categorize') }}"><i class="fa fa-fw fa-edit"></i> Categorize</a>
+                </li>
+                <li>
+                    <a href="{{ path('dh_main_default_share') }}"><i class="fa fa-fw fa-desktop"></i> Share</a>
+                </li>
+                <li>
+                    <a href="{{ path('dh_main_default_settings') }}"><i class="fa fa-fw fa-wrench"></i> Settings</a>
+                </li>
+                <li>
+                    <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> API connections <i class="fa fa-fw fa-caret-down"></i></a>
+                    <ul id="demo" class="collapse">
+                        <li>
+                            <a href="{{ path('dh_main_api_flickr') }}">Flickr</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('dh_main_api_facebook') }}">Facebook</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('dh_main_api_twitter') }}">Twitter</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('dh_main_api_google') }}">Google</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+{% endblock %}

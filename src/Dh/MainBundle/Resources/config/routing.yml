@@ -1,0 +1,44 @@
+dh_main_flickr:
+    resource: "@DhMainBundle/Controller/ApiController.php"
+    type:     annotation
+    prefix:   /api/flickr
+
+dh_main_facebook:
+    resource: "@DhMainBundle/Controller/"
+    type:     annotation
+    prefix:   /api/facebook
+
+dh_main_twitter:
+    resource: "@DhMainBundle/Controller/"
+    type:     annotation
+    prefix:   /api/twitter
+
+dh_main_google:
+    resource: "@DhMainBundle/Controller/"
+    type:     annotation
+    prefix:   /api/google
+
+dh_main_upload:
+    resource: "@DhMainBundle/Controller/"
+    type:     annotation
+    prefix:   /upload
+
+dh_main_photos:
+    resource: "@DhMainBundle/Controller/"
+    type:     annotation
+    prefix:   /photos
+
+dh_main_categorize:
+    resource: "@DhMainBundle/Controller/"
+    type:     annotation
+    prefix:   /categorize
+
+dh_main_share:
+    resource: "@DhMainBundle/Controller/"
+    type:     annotation
+    prefix:   /share
+
+dh_main_settings:
+    resource: "@DhMainBundle/Controller/"
+    type:     annotation
+    prefix:   /settings
