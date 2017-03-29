@@ -33,13 +33,13 @@ class FlickrApi{
 
       $photoUrl = 'http://farm'.$farmId.'.staticflickr.com/'.$serverId.'/'.$photoId.'_'.$secretId.'.'.'jpg';
 
-      print "<div class='col-lg-4 col-md-4 col-xs-6 thumb'>";
+      print "<div class='col-lg-6 col-md-4 col-xs-6 thumb'>";
       print "<a class='thumbnail' href='".$photoUrl."'>";
       print "<img class='img-responsive' title='".$title."' src='".$photoUrl."' />";
       print "</a>";
       print "</div>";
     }
-    
+
   }
 
 
