@@ -4,6 +4,8 @@ namespace Dh\MainBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Dh\MainBundle\Service\FlickrApi;
+
 
 class DefaultController extends Controller
 {
