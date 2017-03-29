@@ -20,4 +20,74 @@ class DefaultController extends Controller
         'username' => $username,
       ));
     }
+
+    /**
+     * @Route("/upload")
+     */
+    public function uploadAction()
+    {
+      //Get logged in username.
+      $username = $this->getUser();
+
+      //Renders template
+      return $this->render('DhMainBundle:Dash:index.html.twig',array(
+        'username' => $username,
+      ));
+    }
+
+    /**
+     * @Route("/share")
+     */
+    public function shareAction()
+    {
+      //Get logged in username.
+      $username = $this->getUser();
+
+      //Renders template
+      return $this->render('DhMainBundle:Dash:index.html.twig',array(
+        'username' => $username,
+      ));
+    }
+
+    /**
+     * @Route("/photos")
+     */
+    public function photosAction()
+    {
+      //Get logged in username.
+      $username = $this->getUser();
+
+      //Renders template
+      return $this->render('DhMainBundle:Dash:index.html.twig',array(
+        'username' => $username,
+      ));
+    }
+
+    /**
+     * @Route("/categorize")
+     */
+    public function categorizeAction()
+    {
+      //Get logged in username.
+      $username = $this->getUser();
+
+      //Renders template
+      return $this->render('DhMainBundle:Dash:index.html.twig',array(
+        'username' => $username,
+      ));
+    }
+
+    /**
+     * @Route("/settings")
+     */
+    public function settingsAction()
+    {
+      //Get logged in username.
+      $username = $this->getUser();
+
+      //Renders template
+      return $this->render('DhMainBundle:Dash:index.html.twig',array(
+        'username' => $username,
+      ));
+    }
 }
