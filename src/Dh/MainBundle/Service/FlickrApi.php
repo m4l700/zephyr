@@ -3,6 +3,10 @@
 namespace Dh\MainBundle\Service;
 
 class FlickrApi{
+
+  /*
+  * Function to get the most recent photos from the Flickr API.
+  */
   public function getPhotos($apiKey, $userID){
     //Variables
     $apikey = $apiKey;
@@ -35,5 +39,8 @@ class FlickrApi{
       print "</a>";
       print "</div>";
     }
+    
   }
+
+
 }

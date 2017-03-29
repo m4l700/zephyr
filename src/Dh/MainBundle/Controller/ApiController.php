@@ -35,7 +35,7 @@ class ApiController extends Controller
       $username = $this->getUser();
 
       //Renders template
-      return $this->render('DhMainBundle:Flickr:flickr.html.twig',array(
+      return $this->render('DhMainBundle:Flickr:facebook.html.twig',array(
         'username' => $username,
       ));
     }
@@ -49,7 +49,7 @@ class ApiController extends Controller
       $username = $this->getUser();
 
       //Renders template
-      return $this->render('DhMainBundle:Flickr:flickr.html.twig',array(
+      return $this->render('DhMainBundle:Flickr:twitter.html.twig',array(
         'username' => $username,
       ));
     }
@@ -63,7 +63,7 @@ class ApiController extends Controller
       $username = $this->getUser();
 
       //Renders template
-      return $this->render('DhMainBundle:Flickr:flickr.html.twig',array(
+      return $this->render('DhMainBundle:Flickr:google.html.twig',array(
         'username' => $username,
       ));
     }
