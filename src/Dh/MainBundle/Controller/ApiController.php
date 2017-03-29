@@ -4,6 +4,7 @@ namespace Dh\MainBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Dh\MainBundle\Service\FlickrApi;
 
 class ApiController extends Controller
 {
@@ -15,9 +16,13 @@ class ApiController extends Controller
       //Get logged in username.
       $username = $this->getUser();
 
+      //Service flickrApi
+      $flickrApi = new FlickrApi;
+
       //Renders template
       return $this->render('DhMainBundle:Flickr:flickr.html.twig',array(
         'username' => $username,
+        'photo' => $flickrApi,
       ));
     }
 

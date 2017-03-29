@@ -1,15 +1,21 @@
 {% block mainwrapper%}
+<style>
+img.img-responsive {
+    max-height: 249px !important;
+}
+</style>
+
 <div id="page-wrapper">
-
        <div class="container-fluid">
-          FLICKR
-
+         <div class="alert alert-info" role="alert">Your latest Flickr stream</div>
+         <div class="row">
+           {{photo.getPhotos('5d87db687e7084fdb203ee90f38bc0c0', '75617896%40N08')}}
+         </div>
        </div>
        <!-- /.container-fluid -->
-
-   </div>
+</div>
    <!-- /#page-wrapper -->
 
-  </div>
+</div>
   <!-- /#wrapper -->
 {% endblock %}
