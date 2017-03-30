@@ -6,6 +6,7 @@ class FlickrApi{
 
   /*
   * Function to get the most recent photos from the Flickr API.
+  * @ToDo Database connection for API key and user ID, Probably even other methods aswell.
   */
   public function getPhotos($apiKey, $userID){
     //Variables
