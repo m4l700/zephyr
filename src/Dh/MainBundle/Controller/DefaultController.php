@@ -5,6 +5,7 @@ namespace Dh\MainBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Dh\MainBundle\Service\FlickrApi;
+use Dh\MainBundle\Service\RssFeed;
 
 
 class DefaultController extends Controller
@@ -17,9 +18,13 @@ class DefaultController extends Controller
       //Get logged in username.
       $username = $this->getUser();
 
+      //Service RssFeed
+      $rssFeed = new RssFeed;
+
       //Renders template
       return $this->render('DhMainBundle:Dash:index.html.twig',array(
         'username' => $username,
+        'feed' => $rssFeed,
       ));
     }
 
