@@ -77,3 +77,11 @@ fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
     user_class: Dh\MainBundle\Entity\User
+
+#Assetic
+assetic:
+    debug:          "%kernel.debug%"
+    use_controller: false
+    bundles:        [FOSUserBundle]
+    filters:
+        cssrewrite: ~
