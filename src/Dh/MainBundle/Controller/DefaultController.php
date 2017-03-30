@@ -88,7 +88,7 @@ class DefaultController extends Controller
       $username = $this->getUser();
 
       //Renders template
-      return $this->render('DhMainBundle:Dash:index.html.twig',array(
+      return $this->render('DhMainBundle:Dash:settings.html.twig',array(
         'username' => $username,
       ));
     }

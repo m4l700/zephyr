@@ -4,7 +4,9 @@
         <meta charset="UTF-8" />
         <title>{% block title %}Zephyr Photo App{% endblock %}</title>
         {% block stylesheets %}
-          <link href="{{ asset('Dh/MainBundle/web/css/test.css') }}" rel="stylesheet" />
+          {% stylesheets '@DhMainBundle/Resources/public/css/*' filter='cssrewrite' %}
+            <link rel="stylesheet" href="{{ asset_url }}" />
+          {% endstylesheets %}
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
         <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -12,32 +14,9 @@
         <link href="https://blackrockdigital.github.io/startbootstrap-sb-admin/css/plugins/morris.css" rel="stylesheet" />
         <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
         <link rel="stylesheet" href="https://rawgit.com/enyo/dropzone/master/dist/dropzone.css">
+
     </head>
     <body>
-        <style>
-        #page-wrapper {
-            background-color: #ececec;
-        }
-        .navbar-inverse {
-            background-color: #444a4e;
-            border-color: #080808;
-        }
-        nav.navbar.navbar-inverse.navbar-fixed-top a {
-            color: white;
-        }
-        .side-nav{
-            background-color: #337ab7;
-        }
-        ul.nav.navbar-nav.side-nav a {
-            color: white !important;
-        }
-        nav.navbar.navbar-inverse.navbar-fixed-top {
-            box-shadow: 0px -1px 13px #505050;
-        }
-        ul.dropdown-menu li a {
-            color: black !important;
-        }
-        </style>
         {% block body %}{% endblock %}
         {% block javascripts %}
         <script src="https://rawgit.com/enyo/dropzone/master/dist/dropzone.js"></script>
