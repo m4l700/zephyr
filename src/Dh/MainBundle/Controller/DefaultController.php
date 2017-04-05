@@ -4,8 +4,10 @@ namespace Dh\MainBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Response;
 use Dh\MainBundle\Service\FlickrApi;
 use Dh\MainBundle\Service\RssFeed;
+use Dh\MainBundle\Entity\Rss;
 
 
 class DefaultController extends Controller
@@ -21,10 +23,15 @@ class DefaultController extends Controller
       //Service RssFeed
       $rssFeed = new RssFeed;
 
+      //RSS Entity
+      $RSS = $this->getDoctrine()->getRepository('DhMainBundle:Rss');
+      $RSSfeed = $RSS->findAll();
+
       //Renders template
       return $this->render('DhMainBundle:Dash:index.html.twig',array(
         'username' => $username,
         'feed' => $rssFeed,
+        'rssEnt' => $RSSfeed,
       ));
     }
 
@@ -80,20 +87,6 @@ class DefaultController extends Controller
 
       //Renders template
       return $this->render('DhMainBundle:Dash:index.html.twig',array(
-        'username' => $username,
-      ));
-    }
-
-    /**
-     * @Route("/settings")
-     */
-    public function settingsAction()
-    {
-      //Get logged in username.
-      $username = $this->getUser();
-
-      //Renders template
-      return $this->render('DhMainBundle:Dash:settings.html.twig',array(
         'username' => $username,
       ));
     }
