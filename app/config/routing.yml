@@ -1,3 +1,7 @@
+dh_settings:
+    resource: "@DhSettingsBundle/Resources/config/routing.yml"
+    prefix:   /settings
+
 dh_main:
     resource: "@DhMainBundle/Controller/"
     type:     annotation

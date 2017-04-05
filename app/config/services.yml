@@ -9,3 +9,6 @@ services:
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
       flickrapi:
         class:  DhMainBundle\Service\FlickApi
+      Rss:
+        class:  DhMainBundle\Service\Rss
+        arguments: ["@doctrine.orm.entity_manager"]

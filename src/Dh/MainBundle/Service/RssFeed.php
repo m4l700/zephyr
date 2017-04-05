@@ -1,8 +1,12 @@
 <?php
 
 namespace Dh\MainBundle\Service;
+use Dh\MainBundle\Entity\Rss;
+//use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+//use Doctrine\ORM\EntityManager;
 
 class RssFeed{
+
 
   /*
   * @ToDo Database connection, get url from database.
@@ -11,6 +15,10 @@ class RssFeed{
 
     $content = file_get_contents($feedUrl);
     $xml = new \SimpleXmlElement($content);
+
+
+
+
 
     echo "<div class='list-group'>";
 
