@@ -37,8 +37,3 @@ dh_main_share:
     resource: "@DhMainBundle/Controller/"
     type:     annotation
     prefix:   /share
-
-dh_main_settings:
-    resource: "@DhMainBundle/Controller/"
-    type:     annotation
-    prefix:   /settings

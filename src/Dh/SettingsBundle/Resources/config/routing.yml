@@ -1,0 +1,3 @@
+dh_settings_index:
+    path:     /
+    defaults: { _controller: DhSettingsBundle:Default:index }
