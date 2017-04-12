@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Zephyr Photo App{% endblock %}</title>
+        <title>{% block title %}Zephyr Dash App{% endblock %}</title>
         {% block stylesheets %}
           {% stylesheets '@DhMainBundle/Resources/public/css/*' filter='cssrewrite' %}
             <link rel="stylesheet" href="{{ asset_url }}" />
@@ -18,12 +18,24 @@
     </head>
     <body>
         {% block body %}
+        <div id="wrapper">
+        	{% include 'navtopbar.html.twig'%}
+
+        	{% include 'navsidebar.html.twig' %}
+
+          {% block main %}
+          {% endblock %}
+
         {% endblock %}
         {% block javascripts %}
         <script src="https://rawgit.com/enyo/dropzone/master/dist/dropzone.js"></script>
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <!-- Bootstrap Core JavaScript -->
         <script src="https://blackrockdigital.github.io/startbootstrap-sb-admin/js/bootstrap.min.js"></script>
+        {% javascripts '@DhMainBundle/Resources/public/js/*' %}
+          <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+
         {% endblock %}
     </body>
 </html>

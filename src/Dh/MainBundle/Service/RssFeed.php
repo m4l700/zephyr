@@ -16,17 +16,15 @@ class RssFeed{
     $content = file_get_contents($feedUrl);
     $xml = new \SimpleXmlElement($content);
 
+    //var_dump($xml);
+    //die();
 
-
-
-
-    echo "<div class='list-group'>";
+    echo "<div class='list-group revealEle' style='display: none;'>";
 
     foreach($xml->channel->item as $entry) {
-        echo "<a class='list-group-item' href='$entry->link' title='$entry->title'>" . $entry->title . "</a>";
+        echo "<a class='list-group-item href='$entry->link' title='$entry->title'>" . $entry->title . "</a>";
     }
     echo "</div>";
-}
-
+  }
 
 }

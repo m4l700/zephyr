@@ -1,0 +1,41 @@
+{% block mainwrapper%}
+<div class="container-fluid">
+  <section class="topStatSection row">
+    <!-- TopBar -->
+    <div class="topbarDash col-lg-12">
+      <div class="topbarInner">
+        <h2>Dashboard - Greetings {{username}}</h2>
+      </div>
+    </div>
+
+    <!-- Stats Block  -->
+    <div class="statsDash col-lg-6 col-xs-12">
+      <div class="innerStats">
+
+      </div>
+    </div>
+    <div class="statsDash col-lg-6 col-xs-12">
+      <div class="innerStats">
+
+      </div>
+    </div>
+  </section>
+
+  <section class="BottomFeedSection row">
+    <!-- InfoBar Block  -->
+    <div class="row secondRow">
+      {% for feeds in rssEnt %}
+      {% set url = feeds.feedUrl %}
+      <div class="col-lg-4 col-md-6 col-xs-12 flexCol widgetCol colID-{{feeds.id}}">
+        <div class="innerDiv">
+          <h3>{{feeds.feedName}} RSS Feed</h3>
+          {{feed.getFeed(url)}}
+        </div>
+      </div>
+      {% endfor %}
+
+
+
+  </section>
+</div>
+{% endblock %}
