@@ -24,4 +24,11 @@ class User extends BaseUser
         parent::__construct();
         // your own logic
     }
+
+    public $username;
+    protected $email;
+    protected $last_login;
+
+
+
 }

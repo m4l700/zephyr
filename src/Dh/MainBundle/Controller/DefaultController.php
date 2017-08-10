@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Dh\MainBundle\Service\FlickrApi;
 use Dh\MainBundle\Service\RssFeed;
+use Dh\MainBundle\Entity\User;
 
 
 class DefaultController extends Controller

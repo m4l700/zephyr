@@ -30,3 +30,37 @@ img.img-responsive {
     height: 530px !important;
     width: auto;
 }
+
+
+div#wrapper {
+    background: white;
+    min-height: calc(100vh - 50px);
+}
+
+.tab-content-zephyr {
+    max-height: 370px;
+}
+.tab-overlay-left {
+    position: absolute;
+    height: 370px;
+    width: 30%;
+    background: rgba(0, 0, 0, 0.73);
+    color: white;
+    text-align: center;
+    line-height: 370px;
+}
+.tab-overlay-right {
+    position: absolute;
+    height: 370px;
+    width: 30%;
+    background: rgba(0, 0, 0, 0.73);
+    color: white;
+    text-align: center;
+    line-height: 370px;
+    right: 0px
+}
+.tab-bg-image > img {
+    max-height: 370px;
+    background-size: cover;
+    width: 100%;
+}
