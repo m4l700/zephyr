@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Zephyr Photo App{% endblock %}</title>
+        <title>{% block title %}Zephyr Dash App{% endblock %}</title>
         {% block stylesheets %}
           {% stylesheets '@DhMainBundle/Resources/public/css/*' filter='cssrewrite' %}
             <link rel="stylesheet" href="{{ asset_url }}" />
@@ -11,19 +11,32 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
         <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <link href="https://blackrockdigital.github.io/startbootstrap-sb-admin/css/sb-admin.css" rel="stylesheet" />
-        <link href="https://blackrockdigital.github.io/startbootstrap-sb-admin/css/plugins/morris.css" rel="stylesheet" />
         <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-        <link rel="stylesheet" href="https://rawgit.com/enyo/dropzone/master/dist/dropzone.css">
-
     </head>
     <body>
+
         {% block body %}
+        	{# include 'navtopbar.html.twig'#}
+          <div id="wrapper">
+            <!-- includes side navbar -->
+        	{% include 'navsidebar.html.twig' %}
+
+          {% block main %}
+            <!-- Main content files -->
+          {% endblock %}
+
         {% endblock %}
+
+        <!-- JS Block -->
         {% block javascripts %}
-        <script src="https://rawgit.com/enyo/dropzone/master/dist/dropzone.js"></script>
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-        <!-- Bootstrap Core JavaScript -->
-        <script src="https://blackrockdigital.github.io/startbootstrap-sb-admin/js/bootstrap.min.js"></script>
+          <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+          <!-- Bootstrap Core JavaScript -->
+          <script src="https://blackrockdigital.github.io/startbootstrap-sb-admin/js/bootstrap.min.js"></script>
+          <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+          {% javascripts '@DhMainBundle/Resources/public/js/*' %}
+            <script src="{{ asset_url }}"></script>
+          {% endjavascripts %}
         {% endblock %}
+
     </body>
 </html>

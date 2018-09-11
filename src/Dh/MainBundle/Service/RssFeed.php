@@ -2,31 +2,30 @@
 
 namespace Dh\MainBundle\Service;
 use Dh\MainBundle\Entity\Rss;
-//use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-//use Doctrine\ORM\EntityManager;
 
 class RssFeed{
 
-
   /*
-  * @ToDo Database connection, get url from database.
+  * @ToDo Database connection, get url from database --> Done.
   */
-  function getFeed($feedUrl) {
+  function getFeed($feedUrl, $limitter) {
+    //Sets $xml variable
+    $xml = simplexml_load_file($feedUrl);
 
-    $content = file_get_contents($feedUrl);
-    $xml = new \SimpleXmlElement($content);
+    echo "<div class='list-group revealEle' style='display: block;'>";
 
+    $i=0; //Sets $i to 0 as a looplimiter
 
-
-
-
-    echo "<div class='list-group'>";
-
-    foreach($xml->channel->item as $entry) {
-        echo "<a class='list-group-item' href='$entry->link' title='$entry->title'>" . $entry->title . "</a>";
+    //Starts foreach loop based on $xml, and sets item(s) as $item.
+    foreach($xml->channel->item as $item) if ($i < $limitter) {
+      echo "<a href='$item->link'";
+      echo "class='list-group-item' target='_blank'";
+      echo "title='$item->title'>" . $item->title . "</a>";
+      $i +=1; //Each loop sets $i + 1, till 7 is reached.
     }
-    echo "</div>";
-}
 
+    echo "</div>";
+
+  }
 
 }

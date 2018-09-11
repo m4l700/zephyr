@@ -52,6 +52,20 @@ class Rss
      */
     private $category;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="showDashboard", type="string", length=255)
+     */
+    private $showDashboard;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="activeDashboard", type="boolean")
+     */
+    private $activeDashboard;
+
 
     /**
      * Get id
@@ -157,5 +171,53 @@ class Rss
     public function getCategory()
     {
         return $this->category;
+    }
+
+    /**
+     * Set showDashboard
+     *
+     * @param string $showDashboard
+     *
+     * @return Rss
+     */
+    public function setShowDashboard($showDashboard)
+    {
+        $this->showDashboard = $showDashboard;
+
+        return $this;
+    }
+
+    /**
+     * Get showDashboard
+     *
+     * @return string
+     */
+    public function getShowDashboard()
+    {
+        return $this->showDashboard;
+    }
+
+    /**
+     * Set activeDashboard
+     *
+     * @param boolean $activeDashboard
+     *
+     * @return Rss
+     */
+    public function setActiveDashboard($activeDashboard)
+    {
+        $this->activeDashboard = $activeDashboard;
+
+        return $this;
+    }
+
+    /**
+     * Get activeDashboard
+     *
+     * @return boolean
+     */
+    public function getActiveDashboard()
+    {
+        return $this->activeDashboard;
     }
 }
