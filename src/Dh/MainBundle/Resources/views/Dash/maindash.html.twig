@@ -1,41 +1,43 @@
 {% block mainwrapper%}
 <div class="container-fluid">
+  <!-- Main Top Section  -->
   <section class="topStatSection row">
     <!-- TopBar -->
     <div class="topbarDash col-lg-12">
       <div class="topbarInner">
-        <h2>Dashboard - Greetings {{username}}</h2>
+        <h2><small>Dashboard - Greetings {{username}}</small></h2>
       </div>
     </div>
+    <!-- TopBar END-->
 
-    <!-- Stats Block  -->
-    <div class="statsDash col-lg-6 col-xs-12">
-      <div class="innerStats">
-
+    <!-- Stats Block WIP  -->
+    <div class="statsDash col-lg-12 col-xs-12">
+      <div class="jumbotron">
+        <h1>Test Dashboard WIP</h1>
+        <p><a href="{{ path('dh_main_api_flickr') }}">Flickr API location</a></p>
       </div>
     </div>
-    <div class="statsDash col-lg-6 col-xs-12">
-      <div class="innerStats">
-
-      </div>
-    </div>
+    <!-- Stats Block WIP END -->
   </section>
 
   <section class="BottomFeedSection row">
-    <!-- InfoBar Block  -->
+    <!-- RSS Feed section -->
     <div class="row secondRow">
+      <!-- Loop to get last X RSS items per feed -->
       {% for feeds in rssEnt %}
       {% set url = feeds.feedUrl %}
-      <div class="col-lg-6 col-md-6 col-xs-12 colID-{{feeds.id}}">
-        <div class="innerDiv">
-          <h3>{{feeds.feedName}} RSS Feed</h3>
-          {{feed.getFeed(url)}}
+        {% if feeds.activeDashboard == "1" %} <!-- Checks if activeDashboard is true -->
+        <div class="col-lg-6 col-md-6 col-xs-12 colID-{{feeds.id}}">
+          <div class="innerDiv">
+            <h3>{{feeds.feedName}} RSS Feed</h3>
+            <span class="label label-info"><a href="/edit/rss/{{feeds.id}}/edit">Edit</a></span>
+            {{feed.getFeed(url, 7)}}
+          </div>
         </div>
-      </div>
+        {% endif %}
       {% endfor %}
-
-
-
+      <!-- End loop -->
+    </div>
   </section>
-</div>
+  <!-- RSS Feed section END -->
 {% endblock %}

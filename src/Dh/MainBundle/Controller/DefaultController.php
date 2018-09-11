@@ -36,6 +36,7 @@ class DefaultController extends Controller
     }
 
     /**
+     * Work in progress idea
      * @Route("/upload")
      */
     public function uploadAction()
@@ -50,6 +51,7 @@ class DefaultController extends Controller
     }
 
     /**
+    * Work in progress idea
      * @Route("/share")
      */
     public function shareAction()
@@ -64,6 +66,7 @@ class DefaultController extends Controller
     }
 
     /**
+     * Work in progress idea
      * @Route("/photos")
      */
     public function photosAction()
@@ -78,6 +81,7 @@ class DefaultController extends Controller
     }
 
     /**
+     * Work in progress idea
      * @Route("/categorize")
      */
     public function categorizeAction()

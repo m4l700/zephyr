@@ -7,8 +7,9 @@ class FlickrApi{
   /*
   * Function to get the most recent photos from the Flickr API.
   * @ToDo Database connection for API key and user ID, Probably even other methods aswell.
+  * And make things way more efficient/OOP..
   */
-  public function getPhotos($apiKey, $userID){
+  public function getPhotos($apiKey, $userID, $numberOfPhotos){
     //Variables
     $apikey = $apiKey;
     $secret = '2b74f4d773523284';
@@ -16,7 +17,7 @@ class FlickrApi{
     $url = 'https://api.flickr.com/services/rest/?method=flickr.people.getPhotos';
     $url.= '&api_key='.$apikey;
     $url.= '&user_id='.$userId;
-    $url.= '&per_page=28';
+    $url.= '&per_page='.$numberOfPhotos;
     $url.= '&format=json';
     $url.= '&nojsoncallback=1';
 
