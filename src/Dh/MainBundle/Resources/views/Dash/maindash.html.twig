@@ -26,7 +26,7 @@
     <div class="row secondRow">
       {% for feeds in rssEnt %}
       {% set url = feeds.feedUrl %}
-      <div class="col-lg-4 col-md-6 col-xs-12 flexCol widgetCol colID-{{feeds.id}}">
+      <div class="col-lg-6 col-md-6 col-xs-12 colID-{{feeds.id}}">
         <div class="innerDiv">
           <h3>{{feeds.feedName}} RSS Feed</h3>
           {{feed.getFeed(url)}}

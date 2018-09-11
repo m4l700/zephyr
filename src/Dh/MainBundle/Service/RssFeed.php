@@ -9,22 +9,23 @@ class RssFeed{
 
 
   /*
-  * @ToDo Database connection, get url from database.
+  * @ToDo Database connection, get url from database --> Done.
   */
   function getFeed($feedUrl) {
 
-    $content = file_get_contents($feedUrl);
-    $xml = new \SimpleXmlElement($content);
+    $xml = simplexml_load_file($feedUrl);
 
-    //var_dump($xml);
-    //die();
-
-    echo "<div class='list-group revealEle' style='display: none;'>";
-
-    foreach($xml->channel->item as $entry) {
-        echo "<a class='list-group-item href='$entry->link' title='$entry->title'>" . $entry->title . "</a>";
+    echo "<div class='list-group revealEle' style='display: block;'>";
+    $i=0;
+    foreach($xml->channel->item as $item) if ($i < 7) {
+      echo "<a href='$item->link'";
+      echo "class='list-group-item' target='_blank'";
+      echo "title='$item->title'>" . $item->title . "</a>";
+      $i +=1;
     }
+
     echo "</div>";
+
   }
 
 }
