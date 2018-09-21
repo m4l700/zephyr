@@ -1,46 +1,55 @@
 {% block navbarside %}
-<!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-        <div class="sidebar navbar-nav">
-            <ul class="nav navbar-nav">
-                <li class="active">
-                    <a href="/"><i class="fa fa-fw fa-dashboard"></i> Main Dashboard</a>
-                </li>
-                <li>
-                    <a href="{{ path('dh_main_default_index') }}"><i class="fa fa-fw fa-bar-chart-o"></i> Upload</a>
-                </li>
-                <li>
-                    <a href="{{ path('dh_main_default_photos') }}"><i class="fa fa-fw fa-table"></i> Photo's</a>
-                </li>
-                <li>
-                    <a href="{{ path('dh_main_default_categorize') }}"><i class="fa fa-fw fa-edit"></i> Categorize</a>
-                </li>
-                <li>
-                    <a href="{{ path('dh_main_default_share') }}"><i class="fa fa-fw fa-desktop"></i> Share</a>
-                </li>
-                <li>
-                    <a href="{{ path('dh_settings_index') }}"><i class="fa fa-fw fa-wrench"></i> Settings</a>
-                </li>
-                <li>
-                    <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> API connections <i class="fa fa-fw fa-caret-down"></i></a>
-                    <ul id="demo" class="collapse">
-                        <li>
-                            <a href="{{ path('dh_main_api_flickr') }}">Flickr</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('dh_main_api_facebook') }}">Facebook</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('dh_main_api_twitter') }}">Twitter</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('dh_main_api_google') }}">Google</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="/logout"><i class="fa fa-fw fa-wrench"></i> Logout</a>
-                </li>
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
+<div class="sidebar">
+   <nav class="sidebar-nav ps ps--active-y">
+      <ul class="nav">
+         <li class="nav-item">
+            <a class="nav-link" href="{{ path('dh_main_default_index') }}">
+            <i class="nav-icon icon-speedometer"></i> Dashboard
+            <span class="badge badge-info">NEW</span>
+            </a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" href="{{ path('dh_main_default_photos') }}">
+            <i class="nav-icon icon-drop"></i> Photo's</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" href="{{ path('dh_main_default_categorize') }}">
+            <i class="nav-icon icon-pencil"></i> Categorize</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" href="{{ path('dh_main_default_share') }}">
+            <i class="nav-icon icon-pencil"></i> Share</a>
+         </li>
+         <li class="nav-title">Settings</li>
+         <li class="nav-item">
+            <a class="nav-link" href="/">
+            <i class="nav-icon icon-puzzle"></i> Settings 1</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" href="/">
+            <i class="nav-icon icon-puzzle"></i> Settings 2</a>
+         </li>
+         <li class="nav-title">API connections</li>
+         <li class="nav-item">
+            <a class="nav-link" href="{{ path('dh_main_api_flickr') }}">
+            <i class="nav-icon icon-puzzle"></i> Flickr</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" href="{{ path('dh_main_api_facebook') }}">
+            <i class="nav-icon icon-puzzle"></i> Facebook</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" href="{{ path('dh_main_api_twitter') }}">
+            <i class="nav-icon icon-puzzle"></i> Twitter</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" href="{{ path('dh_main_api_google') }}">
+            <i class="nav-icon icon-puzzle"></i> Google</a>
+         </li>
+
+
+         
+   </nav>
+   <button class="sidebar-minimizer brand-minimizer" type="button"></button>
+</div>
 {% endblock %}

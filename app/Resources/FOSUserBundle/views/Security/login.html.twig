@@ -3,7 +3,7 @@
 <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 {% block stylesheets %}
-  {% stylesheets '@DhMainBundle/Resources/public/css/login.css' filter='cssrewrite' %}
+  {% stylesheets '@DhMainBundle/Resources/public/css/login/*' filter='cssrewrite' %}
     <link rel="stylesheet" href="{{ asset_url }}" />
   {% endstylesheets %}
 {% endblock %}
@@ -36,10 +36,13 @@
                     <label for="remember_me">Remember me</label>
                 </div>
                 <input type="submit" class="btn btn-signin" id="_submit" name="_submit" value="Sign in" />
+
+                <button class="btn btn-signin" type="button"><a class="btn btn-signin" href="{{ path('fos_user_registration_register') }}">Register</a></button>
             </form><!-- /form -->
             <a href="#" class="forgot-password">
                 Forgot your password?
             </a>
         </div><!-- /card-container -->
+
     </div>
 </form>
