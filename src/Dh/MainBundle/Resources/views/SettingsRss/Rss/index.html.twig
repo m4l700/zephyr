@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Rsses list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Feedname</th>
+                <th>Feedurl</th>
+                <th>Siteurl</th>
+                <th>Category</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for rss in rsses %}
+            <tr>
+                <td><a href="{{ path('edit_show', { 'id': rss.id }) }}">{{ rss.id }}</a></td>
+                <td>{{ rss.feedName }}</td>
+                <td>{{ rss.feedUrl }}</td>
+                <td>{{ rss.siteUrl }}</td>
+                <td>{{ rss.category }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('edit_show', { 'id': rss.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('edit_edit', { 'id': rss.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('edit_new') }}">Create a new rss</a>
+        </li>
+    </ul>
+{% endblock %}

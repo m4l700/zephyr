@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Rss</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ rss.id }}</td>
+            </tr>
+            <tr>
+                <th>Feedname</th>
+                <td>{{ rss.feedName }}</td>
+            </tr>
+            <tr>
+                <th>Feedurl</th>
+                <td>{{ rss.feedUrl }}</td>
+            </tr>
+            <tr>
+                <th>Siteurl</th>
+                <td>{{ rss.siteUrl }}</td>
+            </tr>
+            <tr>
+                <th>Category</th>
+                <td>{{ rss.category }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('edit_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('edit_edit', { 'id': rss.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
