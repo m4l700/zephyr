@@ -1,0 +1,11 @@
+/* Main dash styling */
+a.list-group-item:hover {
+    background: #30353a;
+    color: white;
+}
+
+/* Flickr API */
+img.img-responsive {
+    width: 100%;
+    padding: 5px;
+}

@@ -13,9 +13,9 @@ class RssType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('feedName')->add('feedUrl')->add('siteUrl')->add('category')        ;
+        $builder->add('feedName')->add('feedUrl')->add('siteUrl')->add('category')->add('showDashboard')->add('activeDashboard');
     }
-    
+
     /**
      * {@inheritdoc}
      */

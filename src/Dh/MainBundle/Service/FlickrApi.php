@@ -14,7 +14,7 @@ class FlickrApi{
     $apikey = $apiKey;
     $secret = '2b74f4d773523284';
     $userId = $userID;
-    $url = 'https://api.flickr.com/services/rest/?method=flickr.people.getPhotos';
+    $url = 'https://api.flickr.com/services/rest/?method=flickr.people.getPublicPhotos';
     $url.= '&api_key='.$apikey;
     $url.= '&user_id='.$userId;
     $url.= '&per_page='.$numberOfPhotos;

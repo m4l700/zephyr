@@ -22,12 +22,16 @@
          </li>
          <li class="nav-title">Settings</li>
          <li class="nav-item">
+            <a class="nav-link" href="{{ path('dh_settings_index') }}">
+            <i class="nav-icon icon-puzzle"></i> General settings</a>
+         </li>
+         <li class="nav-item">
             <a class="nav-link" href="{{ path('edit_index') }}">
             <i class="nav-icon icon-puzzle"></i> RSS settings</a>
          </li>
          <li class="nav-item">
-            <a class="nav-link" href="/">
-            <i class="nav-icon icon-puzzle"></i> Settings 2</a>
+            <a class="nav-link" href="/settings/api">
+            <i class="nav-icon icon-puzzle"></i> API Settings</a>
          </li>
          <li class="nav-title">API connections</li>
          <li class="nav-item">
@@ -46,9 +50,6 @@
             <a class="nav-link" href="{{ path('dh_main_api_google') }}">
             <i class="nav-icon icon-puzzle"></i> Google</a>
          </li>
-
-
-
    </nav>
    <button class="sidebar-minimizer brand-minimizer" type="button"></button>
 </div>

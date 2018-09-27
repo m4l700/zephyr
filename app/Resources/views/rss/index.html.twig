@@ -2,85 +2,101 @@
 
 {% block main %}
 
-<main class="main">
-   <ol class="breadcrumb">
+  <main class="main">
+    <ol class="breadcrumb">
       <li class="breadcrumb-item">Home</li>
       <li class="breadcrumb-item active">Dashboard</li>
       <li class="breadcrumb-item active">RSS Settings</li>
       <li class="breadcrumb-menu d-md-down-none">
-         <div class="btn-group" role="group" aria-label="Button group">
-            <a class="btn" href="#">
+        <div class="btn-group" role="group" aria-label="Button group">
+          <a class="btn" href="#">
             <i class="icon-speech"></i>
-            </a>
-            <a class="btn" href="{{ path('homepage') }}">
-            <i class="icon-graph"></i> &nbsp;Dashboard</a>
-            <a class="btn" href="{{ path('dh_settings_index') }}">
-            <i class="icon-settings"></i> &nbsp;Settings</a>
-         </div>
+          </a>
+          <a class="btn" href="{{ path('homepage') }}">
+            <i class="icon-graph"></i>
+            &nbsp;Dashboard</a>
+          <a class="btn" href="{{ path('dh_settings_index') }}">
+            <i class="icon-settings"></i>
+            &nbsp;Settings</a>
+        </div>
       </li>
-   </ol>
+    </ol>
 
-   <div class="container-fluid">
+    <div class="container-fluid">
       <div id="ui-view">
-          <div>
-            <div class="animated fadeIn">
+        <div>
+          <div class="animated fadeIn">
 
-              <div class="col-lg-12 col-xs-6">
-   <div class="card">
-      <div class="card-header">
-         <i class="fa fa-align-justify"></i> Rss Feed(s)
-      </div>
-      <div class="card-body">
-         <table class="table table-responsive-sm table-striped">
-            <thead>
-               <tr>
-                 <th>Id</th>
-                 <th>Feedname</th>
-                 <th>Feedurl</th>
-                 <th>Siteurl</th>
-                 <th>Category</th>
-                 <th>Dashboard</th>
-                 <th>Actions</th>
-               </tr>
-            </thead>
-            <tbody>
-              {% for rss in rsses %}
-                  <tr>
-                      <td><a href="{{ path('edit_show', { 'id': rss.id }) }}">{{ rss.id }}</a></td>
-                      <td>{{ rss.feedName }}</td>
-                      <td>{{ rss.feedUrl }}</td>
-                      <td>{{ rss.siteUrl }}</td>
-                      <td>{{ rss.category }}</td>
-                      <td>{% if rss.activeDashboard == "1" %} Yes {% else %} No {% endif %}</td>
-                      <td>
-                          <ul style="list-style: none;">
+            <div class="col-lg-12 col-xs-6">
+              <div class="card">
+                <div class="card-header">
+                  <i class="fa fa-align-justify"></i>
+                  Rss Feed(s)
+                </div>
+                <div class="card-body">
+                  <table class="table table-responsive-sm table-striped">
+                    <thead>
+                      <tr>
+                        <th>Id</th>
+                        <th>Feedname</th>
+                        <th>Feedurl</th>
+                        <th>Siteurl</th>
+                        <th>Category</th>
+                        <th>Dashboard</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for rss in rsses %}
+                        <tr>
+                          <td>
+                            <a href="{{ path('edit_show', { 'id': rss.id }) }}">{{ rss.id }}</a>
+                          </td>
+                          <td>{{ rss.feedName }}</td>
+                          <td>{{ rss.feedUrl }}</td>
+                          <td>{{ rss.siteUrl }}</td>
+                          <td>{{ rss.category }}</td>
+                          <td>
+                            {% if rss.activeDashboard == "1" %}
+                              Yes
+                            {% else %}
+                              No
+                            {% endif %}
+                          </td>
+                          <td>
+                            <ul style="list-style: none;">
                               <li style="margin-bottom: 5px;">
-                                  <button class="btn btn-block btn-primary" type="button"><a href="{{ path('edit_edit', { 'id': rss.id }) }}" style="color:white !important;">Edit</a></button>
+                                <button class="btn btn-block btn-primary" type="button">
+                                  <a href="{{ path('edit_edit', { 'id': rss.id }) }}" style="color:white !important;">Edit</a>
+                                </button>
                               </li>
                               <li style="margin-bottom: 5px;">
-                                  <button class="btn btn-block btn-danger" type="button"><a href="{{ path('edit_delete', { 'id': rss.id }) }}" style="color:white !important;">Delete</a></button>
+                                <button class="btn btn-block btn-danger" type="button">
+                                  <a href="{{ path('edit_delete', { 'id': rss.id }) }}" style="color:white !important;">Delete</a>
+                                </button>
                               </li>
-                          </ul>
-                      </td>
-                  </tr>
-              {% endfor %}
-            </tbody>
-         </table>
-         <div class="row align-items-center">
-           <div class="col-6 col-sm-4 col-md-2 mb-3 mb-xl-0">
-             <button class="btn btn-block btn-primary" type="button"><a href="{{ path('edit_new') }}" style="color:white !important;">Create a new rss</a></button>
-           </div>
-         </div>
-      </div>
+                            </ul>
+                          </td>
+                        </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                  <div class="row align-items-center">
+                    <div class="col-6 col-sm-4 col-md-2 mb-3 mb-xl-0">
+                      <button class="btn btn-block btn-primary" type="button">
+                        <a href="{{ path('edit_new') }}" style="color:white !important;">Create a new rss</a>
+                      </button>
+                    </div>
+                  </div>
+                </div>
 
-   </div>
-
-</div>
-
+              </div>
 
             </div>
+
           </div>
+        </div>
       </div>
-   </div>
-</main>
+    </div>
+  </main>
 {% endblock %}

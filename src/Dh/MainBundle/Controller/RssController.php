@@ -43,6 +43,9 @@ class RssController extends Controller
      */
     public function newAction(Request $request)
     {
+        //Get logged in username.
+        $username = $this->getUser();
+
         $rss = new Rss();
         $form = $this->createForm('Dh\MainBundle\Form\RssType', $rss);
         $form->handleRequest($request);
@@ -58,6 +61,7 @@ class RssController extends Controller
         return $this->render('rss/new.html.twig', array(
             'rss' => $rss,
             'form' => $form->createView(),
+            'username' => $username,
         ));
     }
 
@@ -69,11 +73,15 @@ class RssController extends Controller
      */
     public function showAction(Rss $rss)
     {
+        //Get logged in username.
+        $username = $this->getUser();
+
         $deleteForm = $this->createDeleteForm($rss);
 
         return $this->render('rss/show.html.twig', array(
             'rss' => $rss,
             'delete_form' => $deleteForm->createView(),
+            'username' => $username,
         ));
     }
 
@@ -89,6 +97,9 @@ class RssController extends Controller
         $editForm = $this->createForm('Dh\MainBundle\Form\RssType', $rss);
         $editForm->handleRequest($request);
 
+        //Get logged in username.
+        $username = $this->getUser();
+
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
@@ -99,6 +110,7 @@ class RssController extends Controller
             'rss' => $rss,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
+            'username' => $username,
         ));
     }
 
