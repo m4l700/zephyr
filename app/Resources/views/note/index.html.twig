@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+  <main class="main">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">Home</li>
+      <li class="breadcrumb-item active">Dashboard</li>
+      <li class="breadcrumb-item active">Notes</li>
+      <li class="breadcrumb-menu d-md-down-none">
+        <div class="btn-group" role="group" aria-label="Button group">
+          <a class="btn" href="#">
+            <i class="icon-speech"></i>
+          </a>
+          <a class="btn" href="{{ path('homepage') }}">
+            <i class="icon-graph"></i>
+            &nbsp;Dashboard</a>
+          <a class="btn" href="{{ path('dh_settings_index') }}">
+            <i class="icon-settings"></i>
+            &nbsp;Settings</a>
+        </div>
+      </li>
+    </ol>
+    <div class="container-fluid">
+      <div id="ui-view">
+        <div>
+          <div class="animated fadeIn">
+            <div class="col-lg-12 col-xs-6">
+              <div class="card">
+                <div class="card-header">
+                  <i class="fa fa-align-justify"></i>
+                  Notes list
+                </div>
+                <div class="card-body">
+                  <table class="table table-responsive-sm table-striped">
+                    <thead>
+                      <tr>
+                        <th>Id</th>
+                        <th>Notename</th>
+                        <th>Description</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for note in notes %}
+                        <tr>
+                          <td>
+                            <a href="{{ path('note_show', { 'id': note.id }) }}">{{ note.id }}</a>
+                          </td>
+                          <td>{{ note.noteName }}</td>
+                          <td>{{ note.description }}</td>
+                          <td>
+                              <ul style="list-style: none;">
+                                <li style="margin-bottom: 5px;">
+                                  <button class="btn btn-block btn-primary" type="button">
+                                    <a href="{{ path('note_edit', { 'id': note.id }) }}" style="color:white !important;">Edit</a>
+                                  </button>
+                                </li>
+                                <li style="margin-bottom: 5px;">
+                                  <button class="btn btn-block btn-danger" type="button">
+                                    <a href="{{ path('note_delete', { 'id': note.id }) }}" style="color:white !important;">Delete</a>
+                                  </button>
+                                </li>
+                              </ul>
+                          </td>
+                        </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                  <div class="row align-items-center">
+                    <div class="col-6 col-sm-4 col-md-2 mb-3 mb-xl-0">
+                      <button class="btn btn-block btn-primary" type="button">
+                        <a href="{{ path('note_new') }}" style="color:white !important;">Create a new Note</a>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+{% endblock %}
