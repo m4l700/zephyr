@@ -1,0 +1,1 @@
+<?php // Is silence golden? ?>

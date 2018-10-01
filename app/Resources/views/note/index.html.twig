@@ -47,7 +47,7 @@
                             <a href="{{ path('note_show', { 'id': note.id }) }}">{{ note.id }}</a>
                           </td>
                           <td>{{ note.noteName }}</td>
-                          <td>{{ note.description }}</td>
+                          <td>{{ note.description|trans|nl2br }}</td>
                           <td>
                               <ul style="list-style: none;">
                                 <li style="margin-bottom: 5px;">
