@@ -5,14 +5,11 @@
       <li class="breadcrumb-item active">Dashboard</li>
       <li class="breadcrumb-menu d-md-down-none">
         <div class="btn-group" role="group" aria-label="Button group">
-          <a class="btn" href="#">
-            <i class="icon-speech"></i>
-          </a>
           <a class="btn" href="./">
-            <i class="icon-graph"></i>
+            <i class="fa fa-home"></i>
             &nbsp;Dashboard</a>
-          <a class="btn" href="#">
-            <i class="icon-settings"></i>
+          <a class="btn" href="{{path('dh_settings_index')}}">
+            <i class="fa fa-cogs"></i>
             &nbsp;Settings</a>
         </div>
       </li>
@@ -152,7 +149,7 @@
                       <div class="card-header">
                         <strong>{{feeds.feedName}}</strong>
                         <span class="label label-info">
-                          <a href="/edit/rss/{{feeds.id}}/edit">Edit</a>
+                          <a href="/edit/rss/{{feeds.id}}/edit"><i class="fa fa-edit">Edit</i></a>
                         </span>
                       </div>
                       <div class="card-body">
@@ -176,11 +173,6 @@
     <li class="nav-item">
       <a class="nav-link active" data-toggle="tab" href="#timeline" role="tab">
         <i class="icon-list"></i>
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" data-toggle="tab" href="#messages" role="tab">
-        <i class="icon-speech"></i>
       </a>
     </li>
     <li class="nav-item">
