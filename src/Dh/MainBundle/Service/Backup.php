@@ -74,7 +74,7 @@ public function makeSQL() {
 /*
 * Function to sync backup data to cloud.
 */
-public function makeSQL() {
+public function sync() {
  //WIP
 }
 
