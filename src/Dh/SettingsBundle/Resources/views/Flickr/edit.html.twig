@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+  <main class="main">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">Home</li>
+      <li class="breadcrumb-item active">Dashboard</li>
+      <li class="breadcrumb-item active">General settings</li>
+      <li class="breadcrumb-item active">Flickr API settings</li>
+      <li class="breadcrumb-item active">Edit</li>
+      <li class="breadcrumb-menu d-md-down-none">
+        <div class="btn-group" role="group" aria-label="Button group">
+          <a class="btn" href="{{path('dh_settings_index')}}">
+            <i class="fa fa-cogs"></i>
+            &nbsp;Settings</a>
+        </div>
+      </li>
+    </ol>
+    <div class="container-fluid">
+      <div id="ui-view">
+        <div>
+          <div class="animated fadeIn">
+            <h1>Flickr edit</h1>
+
+            {{ form_start(edit_form) }}
+                {{ form_widget(edit_form) }}
+                <input type="submit" value="Edit" />
+            {{ form_end(edit_form) }}
+
+            <ul>
+                <li>
+                    <a href="{{ path('settings_flickr_index') }}">Back to the list</a>
+                </li>
+                <li>
+                    {{ form_start(delete_form) }}
+                        <input type="submit" value="Delete">
+                    {{ form_end(delete_form) }}
+                </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

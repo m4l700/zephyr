@@ -18,17 +18,17 @@ class Backup{
   /*
   * Function to create a Zip.
   */
-  public function makeZip($dir) {
+  public function makeZip($path = '..') {
 
   //Get real path for folder
-  $rootPath = realpath($dir);
+  $rootPath = realpath($path);
 
   //Get current date
   $date = $this->currentDate();
 
   //Initialize archive object
   $zip = new \ZipArchive();
-  $zipDestination = 'backup/';
+  $zipDestination = $rootPath.'/backup/';
   $zipName = $zipDestination.'backup-'.$date.'.zip';
   $zip->open($zipName, \ZipArchive::CREATE | \ZipArchive::OVERWRITE);
 
@@ -78,5 +78,8 @@ public function sync() {
  //WIP
 }
 
+public function pwd(){
+  var_dump(getcwd());
+}
 
 }//Closes class

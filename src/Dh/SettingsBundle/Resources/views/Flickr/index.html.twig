@@ -1,0 +1,122 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+<main class="main">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">Home</li>
+    <li class="breadcrumb-item active">Dashboard</li>
+    <li class="breadcrumb-item active">General settings</li>
+    <li class="breadcrumb-item active">Flickr API settings</li>
+    <li class="breadcrumb-menu d-md-down-none">
+      <div class="btn-group" role="group" aria-label="Button group">
+        <a class="btn" href="{{path('dh_settings_index')}}">
+          <i class="fa fa-cogs"></i>
+          &nbsp;Settings</a>
+      </div>
+    </li>
+  </ol>
+  <div class="container-fluid">
+    <div id="ui-view">
+      <div>
+        <div class="animated fadeIn">
+          <div class="col-lg-12 col-xs-6">
+            <div class="card">
+              <div class="card-header">
+                <i class="fa fa-align-justify"></i>
+                Add/Edit Flickr API settings
+              </div>
+              <div class="card-body">
+                <table class="table table-responsive-sm table-striped">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Api-Key</th>
+                      <th>User-Id</th>
+                      <th>Api-Secret</th>
+                      <th>AmountPhoto's</th>
+                      <th>Api-url</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for flickr in flickrs %}
+                      <tr>
+                        <td><a href="{{ path('settings_flickr_show', { 'id': flickr.id }) }}">{{ flickr.id }}</a></td>
+                        <td>{{ flickr.apiKey }}</td>
+                        <td>{{ flickr.userId }}</td>
+                        <td>{{ flickr.apiSecret }}</td>
+                        <td>{{ flickr.numberOfPhotos }}</td>
+                        <td>{{ flickr.apiURL }}</td>
+                        <td>
+                          <ul style="list-style: none;">
+                            <li style="margin-bottom: 5px;">
+                              <button class="btn btn-block btn-primary" type="button">
+                                <a href="{{ path('settings_flickr_edit', { 'id': flickr.id }) }}" style="color:white !important;">Edit</a>
+                              </button>
+                            </li>
+                            <li style="margin-bottom: 5px;">
+                              <button class="btn btn-block btn-danger" type="button">
+                                <a href="{{ path('settings_flickr_delete', { 'id': flickr.id }) }}" style="color:white !important;">Delete</a>
+                              </button>
+                            </li>
+                          </ul>
+                        </td>
+                      </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+                <div class="row align-items-center">
+                  <div class="col-6 col-sm-4 col-md-2 mb-3 mb-xl-0">
+                    <button class="btn btn-block btn-primary" type="button">
+                      <a href="{{ path('settings_flickr_new') }}" style="color:white !important;">Add a new API rule</a>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <table>
+              <thead>
+                  <tr>
+
+                  </tr>
+              </thead>
+              <tbody>
+              {% for flickr in flickrs %}
+                  <tr>
+
+                  </tr>
+              {% endfor %}
+              </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+
+{% endblock %}

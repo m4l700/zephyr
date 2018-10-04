@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Flickr</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ flickr.id }}</td>
+            </tr>
+            <tr>
+                <th>Apikey</th>
+                <td>{{ flickr.apiKey }}</td>
+            </tr>
+            <tr>
+                <th>Userid</th>
+                <td>{{ flickr.userId }}</td>
+            </tr>
+            <tr>
+                <th>Apisecret</th>
+                <td>{{ flickr.apiSecret }}</td>
+            </tr>
+            <tr>
+                <th>Numberofphotos</th>
+                <td>{{ flickr.numberOfPhotos }}</td>
+            </tr>
+            <tr>
+                <th>Apiurl</th>
+                <td>{{ flickr.apiURL }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('settings_flickr_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('settings_flickr_edit', { 'id': flickr.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

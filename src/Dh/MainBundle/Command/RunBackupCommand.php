@@ -35,12 +35,6 @@ class RunBackupCommand extends ContainerAwareCommand
       $backup = new Backup;
       $makeZip = $backup->makeZip(".");
 
-      //Add's timestamp to DB
-      //timestamp
-      //succesfull
-      //filename
-      //fullpath
-
       $output->writeln('Backup successfully generated!');
     }
 }

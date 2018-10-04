@@ -29,7 +29,7 @@ class RssController extends Controller
         //Get logged in username.
         $username = $this->getUser();
 
-        return $this->render('rss/index.html.twig', array(
+        return $this->render('DhMainBundle:Rss:index.html.twig', array(
             'rsses' => $rsses,
             'username' => $username,
         ));
@@ -58,7 +58,7 @@ class RssController extends Controller
             return $this->redirectToRoute('edit_show', array('id' => $rss->getId()));
         }
 
-        return $this->render('rss/new.html.twig', array(
+        return $this->render('DhMainBundle:Rss:new.html.twig', array(
             'rss' => $rss,
             'form' => $form->createView(),
             'username' => $username,
@@ -78,7 +78,7 @@ class RssController extends Controller
 
         $deleteForm = $this->createDeleteForm($rss);
 
-        return $this->render('rss/show.html.twig', array(
+        return $this->render('DhMainBundle:Rss:show.html.twig', array(
             'rss' => $rss,
             'delete_form' => $deleteForm->createView(),
             'username' => $username,
@@ -106,7 +106,7 @@ class RssController extends Controller
             return $this->redirectToRoute('edit_edit', array('id' => $rss->getId()));
         }
 
-        return $this->render('rss/edit.html.twig', array(
+        return $this->render('DhMainBundle:Rss:edit.html.twig', array(
             'rss' => $rss,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
