@@ -16,13 +16,27 @@ class ApiController extends Controller
       //Get logged in username.
       $username = $this->getUser();
 
+      //Fetching from DB
+      $repository = $this->getDoctrine()->getRepository('DhMainBundle:Flickr');
+      $flickr = $repository->findById('1');
+      $keys = array_keys($flickr);
+      foreach ($flickr as $key) {
+        $apikey = $key->apiKey;
+        $userid = $key->userId;
+        $apisecret = $key->apiSecret;
+        $numberofphotos = $key->numberOfPhotos;
+        $apiurl = $key->apiURL;
+      }
+
       //Service flickrApi
-      $flickrApi = new FlickrApi;
+      $flickrApi = new FlickrApi($apikey, $userid, $apisecret, $apiurl);
+      $flickrApi->setNumberOfPhotos($numberofphotos);
+      $getPhotos = $flickrApi->getPhoto();
 
       //Renders template
       return $this->render('DhMainBundle:Flickr:flickr.html.twig',array(
         'username' => $username,
-        'photo' => $flickrApi,
+        'photos' => $getPhotos,
       ));
     }
 

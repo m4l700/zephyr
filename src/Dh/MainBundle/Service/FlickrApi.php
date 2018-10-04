@@ -4,20 +4,35 @@ namespace Dh\MainBundle\Service;
 
 class FlickrApi{
 
+  private $apiKey;
+  private $userID;
+  private $numberOfPhotos;
+  private $secret;
+  private $url;
+
+  public function __construct($apiKey, $userID, $secret, $apiUrl) {
+    $this->apiKey = $apiKey;
+    $this->userID = $userID;
+    $this->secret = $secret;
+    $this->url = $apiUrl;
+  }
+
+  function setNumberOfPhotos($numberofphotos){
+    $this->numberOfPhotos = $numberofphotos;
+  }
+
+
   /*
   * Function to get the most recent photos from the Flickr API.
-  * @ToDo Database connection for API key and user ID, Probably even other methods aswell.
-  * And make things way more efficient/OOP..
   */
-  public function getPhotos($apiKey, $userID, $numberOfPhotos){
+  public function getPhoto(){
     //Variables
-    $apikey = $apiKey;
-    $secret = '2b74f4d773523284';
-    $userId = $userID;
-    $url = 'https://api.flickr.com/services/rest/?method=flickr.people.getPublicPhotos';
-    $url.= '&api_key='.$apikey;
-    $url.= '&user_id='.$userId;
-    $url.= '&per_page='.$numberOfPhotos;
+    $apikey = $this->apiKey;
+    $userId = $this->userID;
+    $url = $this->url;
+    $url.= '&api_key='.$this->apiKey;
+    $url.= '&user_id='.$this->userID;
+    $url.= '&per_page='.$this->numberOfPhotos;
     $url.= '&format=json';
     $url.= '&nojsoncallback=1';
 
@@ -29,19 +44,18 @@ class FlickrApi{
       $serverId = $singlePhoto->server;
       $photoId = $singlePhoto->id;
       $secretId = $singlePhoto->secret;
+      $title = $singlePhoto->title;
       //$size = 'm';
 
-      $title = $singlePhoto->title;
-
+      //Compiles URL
       $photoUrl = 'http://farm'.$farmId.'.staticflickr.com/'.$serverId.'/'.$photoId.'_'.$secretId.'.'.'jpg';
 
-      print "<div class='col-lg-6 col-md-4 col-xs-6 thumb'>";
-      print "<a class='thumbnail' href='".$photoUrl."'>";
-      print "<img class='img-responsive' title='".$title."' src='".$photoUrl."' />";
-      print "</a>";
-      print "</div>";
+      //Puts all data in array to be used in frontend
+      $arrayPhotos[] = array(
+        'id'=>$photoId, 'farmID'=>$farmId, 'serverID'=>$serverId, 'title'=>$title, 'fullURL'=>$photoUrl
+      );
     }
-
+    return $arrayPhotos;
   }
 
 }
