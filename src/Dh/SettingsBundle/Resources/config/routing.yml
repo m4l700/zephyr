@@ -1,3 +1,6 @@
 dh_settings_index:
     path:     /
     defaults: { _controller: DhSettingsBundle:Default:index }
+dh_settings_api:
+    path:     /api
+    defaults: { _controller: DhSettingsBundle:Default:api }
