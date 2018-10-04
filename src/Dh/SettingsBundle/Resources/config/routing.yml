@@ -4,3 +4,9 @@ dh_settings_index:
 dh_settings_api:
     path:     /api
     defaults: { _controller: DhSettingsBundle:Default:api }
+dh_settings_backup:
+    path:     /backup
+    defaults: { _controller: DhSettingsBundle:Default:backup }
+dh_settings_backup_create:
+      path:     /backup/create
+      defaults: { _controller: DhSettingsBundle:Default:backupcreate }

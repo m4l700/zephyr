@@ -29,7 +29,7 @@ class NoteController extends Controller
         //Get logged in username.
         $username = $this->getUser();
 
-        return $this->render('note/index.html.twig', array(
+        return $this->render('DhMainBundle:Note:index.html.twig', array(
             'notes' => $notes,
             'username' => $username,
         ));
@@ -55,7 +55,7 @@ class NoteController extends Controller
             return $this->redirectToRoute('note_show', array('id' => $note->getId()));
         }
 
-        return $this->render('note/new.html.twig', array(
+        return $this->render('DhMainBundle:Note:new.html.twig', array(
             'note' => $note,
             'form' => $form->createView(),
         ));
@@ -71,7 +71,7 @@ class NoteController extends Controller
     {
         $deleteForm = $this->createDeleteForm($note);
 
-        return $this->render('note/show.html.twig', array(
+        return $this->render('DhMainBundle:Note:show.html.twig', array(
             'note' => $note,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -95,7 +95,7 @@ class NoteController extends Controller
             return $this->redirectToRoute('note_edit', array('id' => $note->getId()));
         }
 
-        return $this->render('note/edit.html.twig', array(
+        return $this->render('DhMainBundle:Note:edit.html.twig', array(
             'note' => $note,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

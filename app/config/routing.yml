@@ -1,3 +1,7 @@
+dh_main_flickr:
+    resource: "@DhMainBundle/Controller/FlickrController.php"
+    type:     annotation
+
 dh_main_note:
     resource: "@DhMainBundle/Controller/NoteController.php"
     type:     annotation
