@@ -11,7 +11,7 @@ class Backup{
   * Function to get current date.
   */
   public function currentDate() {
-    return date('m-d-Y h:i:s');
+    return date('m-d-Y-h:i:s');
   }
 
 

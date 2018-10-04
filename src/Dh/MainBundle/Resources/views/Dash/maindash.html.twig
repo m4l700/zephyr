@@ -5,9 +5,12 @@
       <li class="breadcrumb-item active">Dashboard</li>
       <li class="breadcrumb-menu d-md-down-none">
         <div class="btn-group" role="group" aria-label="Button group">
-          <a class="btn" href="./">
-            <i class="fa fa-home"></i>
-            &nbsp;Dashboard</a>
+          <a class="btn" href="#">
+            <i class="fa fa-rss"></i>
+            &nbsp;{{rssCount}} total feeds!</a>
+            <a class="btn" href="#">
+              <i class="fa fa-rss"></i>
+              &nbsp;{{rssCountActive}} active feeds!</a>
           <a class="btn" href="{{path('dh_settings_index')}}">
             <i class="fa fa-cogs"></i>
             &nbsp;Settings</a>
@@ -18,6 +21,7 @@
       <div id="ui-view">
         <div>
           <div class="animated fadeIn">
+            <!--
             <div class="row">
               <div class="col-sm-6 col-lg-3">
                 <div class="card text-white bg-primary">
@@ -138,7 +142,7 @@
                 </div>
               </div>
             </div>
-
+          -->
             <div class="row">
               {% for feeds in rssEnt %}
                 {% set url = feeds.feedUrl %}

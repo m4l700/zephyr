@@ -33,7 +33,7 @@ class DefaultController extends Controller
 
       //Count all feeds
       $rssCount = $rssFeed->countRssFeeds($RSSfeed);
-
+      
       //Renders template
       return $this->render('DhMainBundle:Dash:index.html.twig',array(
         'username' => $username,
@@ -53,8 +53,22 @@ class DefaultController extends Controller
       //Get logged in username.
       $username = $this->getUser();
 
+      //Service RssFeed
+      $rssFeed = new RssFeed;
+
+      //RSS Entity
+      $RSS = $this->getDoctrine()->getRepository('DhMainBundle:Rss');
+      $RSSfeed = $RSS->findAll(); //Find all feeds
+      $RSSactiveDashboard = $RSS->findBy(array('activeDashboard' => '1')); //get feeds that are active on dashboard
+
+      //Count active RSS feeds on dashboard
+      $rssCountActive = $rssFeed->countRssFeeds($RSSactiveDashboard);
+
+      //Count all feeds
+      $rssCount = $rssFeed->countRssFeeds($RSSfeed);
+
       //Renders template
-      return $this->render('DhMainBundle:Dash:index.html.twig',array(
+      return $this->render('DhMainBundle:Dash:upload.html.twig',array(
         'username' => $username,
       ));
     }
@@ -68,8 +82,22 @@ class DefaultController extends Controller
       //Get logged in username.
       $username = $this->getUser();
 
+      //Service RssFeed
+      $rssFeed = new RssFeed;
+
+      //RSS Entity
+      $RSS = $this->getDoctrine()->getRepository('DhMainBundle:Rss');
+      $RSSfeed = $RSS->findAll(); //Find all feeds
+      $RSSactiveDashboard = $RSS->findBy(array('activeDashboard' => '1')); //get feeds that are active on dashboard
+
+      //Count active RSS feeds on dashboard
+      $rssCountActive = $rssFeed->countRssFeeds($RSSactiveDashboard);
+
+      //Count all feeds
+      $rssCount = $rssFeed->countRssFeeds($RSSfeed);
+
       //Renders template
-      return $this->render('DhMainBundle:Dash:index.html.twig',array(
+      return $this->render('DhMainBundle:Dash:share.html.twig',array(
         'username' => $username,
       ));
     }
@@ -83,8 +111,22 @@ class DefaultController extends Controller
       //Get logged in username.
       $username = $this->getUser();
 
+      //Service RssFeed
+      $rssFeed = new RssFeed;
+
+      //RSS Entity
+      $RSS = $this->getDoctrine()->getRepository('DhMainBundle:Rss');
+      $RSSfeed = $RSS->findAll(); //Find all feeds
+      $RSSactiveDashboard = $RSS->findBy(array('activeDashboard' => '1')); //get feeds that are active on dashboard
+
+      //Count active RSS feeds on dashboard
+      $rssCountActive = $rssFeed->countRssFeeds($RSSactiveDashboard);
+
+      //Count all feeds
+      $rssCount = $rssFeed->countRssFeeds($RSSfeed);
+
       //Renders template
-      return $this->render('DhMainBundle:Dash:index.html.twig',array(
+      return $this->render('DhMainBundle:Dash:photos.html.twig',array(
         'username' => $username,
       ));
     }
@@ -99,7 +141,7 @@ class DefaultController extends Controller
       $username = $this->getUser();
 
       //Renders template
-      return $this->render('DhMainBundle:Dash:index.html.twig',array(
+      return $this->render('DhMainBundle:Dash:categorize.html.twig',array(
         'username' => $username,
       ));
     }
