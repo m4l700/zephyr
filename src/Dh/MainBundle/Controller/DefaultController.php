@@ -7,6 +7,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Dh\MainBundle\Service\FlickrApi;
 use Dh\MainBundle\Service\RssFeed;
+use Dh\MainBundle\Service\Crawler;
 use Dh\MainBundle\Entity\Rss;
 
 
@@ -33,7 +34,7 @@ class DefaultController extends Controller
 
       //Count all feeds
       $rssCount = $rssFeed->countRssFeeds($RSSfeed);
-      
+
       //Renders template
       return $this->render('DhMainBundle:Dash:index.html.twig',array(
         'username' => $username,
@@ -145,4 +146,27 @@ class DefaultController extends Controller
         'username' => $username,
       ));
     }
+
+    /**
+     * Work in progress idea
+     * @Route("/crawler")
+     */
+    public function crawlerAction()
+    {
+      //Get logged in username.
+      $username = $this->getUser();
+
+      //Get crawlersettings from DB
+      $em = $this->getDoctrine()->getManager();
+      $crawlerRepo = $em->getRepository('DhSettingsBundle:Crawlerdata');
+      $crawlerAll = $crawlerRepo->findAll();
+
+
+      //Renders template
+      return $this->render('DhMainBundle:Dash:crawler.html.twig',array(
+        'username' => $username,
+        'crawler' => $crawlerAll,
+      ));
+    }
+
 }
