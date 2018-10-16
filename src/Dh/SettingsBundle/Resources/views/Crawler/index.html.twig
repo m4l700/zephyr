@@ -6,7 +6,7 @@
     <li class="breadcrumb-item">Home</li>
     <li class="breadcrumb-item active">Dashboard</li>
     <li class="breadcrumb-item active">General settings</li>
-    <li class="breadcrumb-item active">Flickr API settings</li>
+    <li class="breadcrumb-item active">Crawler settings</li>
     <li class="breadcrumb-menu d-md-down-none">
       <div class="btn-group" role="group" aria-label="Button group">
         <a class="btn" href="{{path('dh_settings_index')}}">
@@ -23,40 +23,42 @@
             <div class="card">
               <div class="card-header">
                 <i class="fa fa-align-justify"></i>
-                Add/Edit Flickr API settings
+                Add/Edit Crawler settings
               </div>
               <div class="card-body">
                 <table class="table table-responsive-sm table-striped">
                   <thead>
                     <tr>
-                      <th>ID</th>
-                      <th>Api-Key</th>
-                      <th>User-Id</th>
-                      <th>Api-Secret</th>
-                      <th>AmountPhoto's</th>
-                      <th>Api-url</th>
+                      <th>Id</th>
+                      <th>Name</th>
+                      <th>Productclass</th>
+                      <th>Titleclass</th>
+                      <th>Descriptionclass</th>
+                      <th>Priceclass</th>
+                      <th>Active</th>
                       <th>Actions</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {% for flickr in flickrs %}
+                    {% for crawlersetting in crawlersettings %}
                       <tr>
-                        <td><a href="{{ path('settings_flickr_show', { 'id': flickr.id }) }}">{{ flickr.id }}</a></td>
-                        <td>{{ flickr.apiKey }}</td>
-                        <td>{{ flickr.userId }}</td>
-                        <td>{{ flickr.apiSecret }}</td>
-                        <td>{{ flickr.numberOfPhotos }}</td>
-                        <td>{{ flickr.apiURL }}</td>
+                        <td><a href="{{ path('settings_crawler_show', { 'id': crawlersetting.id }) }}">{{ crawlersetting.id }}</a></td>
+                        <td>{{ crawlersetting.name }}</td>
+                        <td>{{ crawlersetting.productclass }}</td>
+                        <td>{{ crawlersetting.titleclass }}</td>
+                        <td>{{ crawlersetting.descriptionclass }}</td>
+                        <td>{{ crawlersetting.priceclass }}</td>
+                        <td>{% if crawlersetting.active %}Yes{% else %}No{% endif %}</td>
                         <td>
                           <ul style="list-style: none;">
                             <li style="margin-bottom: 5px;">
                               <button class="btn btn-block btn-primary" type="button">
-                                <a href="{{ path('settings_flickr_edit', { 'id': flickr.id }) }}" style="color:white !important;">Edit</a>
+                                <a href="{{ path('settings_crawler_show', { 'id': crawlersetting.id }) }}" style="color:white !important;">Edit</a>
                               </button>
                             </li>
                             <li style="margin-bottom: 5px;">
                               <button class="btn btn-block btn-danger" type="button">
-                                <a href="{{ path('settings_flickr_delete', { 'id': flickr.id }) }}" style="color:white !important;">Delete</a>
+                                <a href="{{ path('settings_crawler_delete', { 'id': crawlersetting.id }) }}" style="color:white !important;">Delete</a>
                               </button>
                             </li>
                           </ul>
@@ -68,7 +70,12 @@
                 <div class="row align-items-center">
                   <div class="col-6 col-sm-4 col-md-2 mb-3 mb-xl-0">
                     <button class="btn btn-block btn-primary" type="button">
-                      <a href="{{ path('settings_flickr_new') }}" style="color:white !important;">Add a new API rule</a>
+                      <a href="{{ path('settings_crawler_new') }}" style="color:white !important;">Add a new Crawler</a>
+                    </button>
+                  </div>
+                  <div class="col-6 col-sm-4 col-md-2 mb-3 mb-xl-0">
+                    <button class="btn btn-block btn-primary" type="button">
+                      <a href="{{ path('dh_settings_runcrawler') }}" style="color:white !important;">Run Crawler</a>
                     </button>
                   </div>
                 </div>
@@ -79,8 +86,6 @@
       </div>
     </div>
   </div>
-
 </main>
-
 
 {% endblock %}

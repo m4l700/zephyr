@@ -7,10 +7,12 @@
         <div class="btn-group" role="group" aria-label="Button group">
           <a class="btn" href="#">
             <i class="fa fa-rss"></i>
-            &nbsp;{{rssCount}} total feeds!</a>
-            <a class="btn" href="#">
-              <i class="fa fa-rss"></i>
-              &nbsp;{{rssCountActive}} active feeds!</a>
+            &nbsp;{{rssCount}}
+            total feeds!</a>
+          <a class="btn" href="#">
+            <i class="fa fa-rss"></i>
+            &nbsp;{{rssCountActive}}
+            active feeds!</a>
           <a class="btn" href="{{path('dh_settings_index')}}">
             <i class="fa fa-cogs"></i>
             &nbsp;Settings</a>
@@ -21,128 +23,69 @@
       <div id="ui-view">
         <div>
           <div class="animated fadeIn">
-            <!--
-            <div class="row">
-              <div class="col-sm-6 col-lg-3">
-                <div class="card text-white bg-primary">
-                  <div class="card-body pb-0">
-                    <div class="btn-group float-right">
-                      <button class="btn btn-transparent dropdown-toggle p-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="icon-settings"></i>
-                      </button>
-                      <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                      </div>
-                    </div>
-                    <div class="text-value">{{rssCount}}</div>
-                    <div>Number of added RSS feeds.</div>
+            <div class="card-group mb-4">
+              <div class="card">
+                <div class="card-body">
+                  <div class="h1 text-muted text-right mb-4">
+                    <i class="fa fa-rss"></i>
                   </div>
-                  <div class="chart-wrapper mt-3 mx-3" style="height:70px;">
-                    <div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
-                      <div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
-                        <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
-                      </div>
-                      <div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
-                        <div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
-                      </div>
-                    </div>
-                    <canvas class="chart chartjs-render-monitor" id="card-chart1" height="70" style="display: block; width: 355px; height: 70px;" width="355"></canvas>
-                    <div id="card-chart1-tooltip" class="chartjs-tooltip top" style="opacity: 0; left: 137.558px; top: 93.2778px;">
-                      <div class="tooltip-header">
-                        <div class="tooltip-header-item">March</div>
-                      </div>
-                      <div class="tooltip-body">
-                        <div class="tooltip-body-item">
-                          <span class="tooltip-body-item-color" style="background-color: rgb(0, 165, 224);"></span><span class="tooltip-body-item-label">My First dataset</span><span class="tooltip-body-item-value">84</span></div>
-                      </div>
-                    </div>
+                  <div class="text-value">{{rssCount}}</div>
+                  <small class="text-muted text-uppercase font-weight-bold">Total feeds</small>
+                  <div class="progress progress-xs mt-3 mb-0">
+                    <div class="progress-bar bg-info" role="progressbar" style="width: {{rssCount}}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
                 </div>
               </div>
-              <div class="col-sm-6 col-lg-3">
-                <div class="card text-white bg-info">
-                  <div class="card-body pb-0">
-                    <button class="btn btn-transparent p-0 float-right" type="button">
-                      <i class="icon-location-pin"></i>
-                    </button>
-                    <div class="text-value">{{rssCountActive}}</div>
-                    <div>Number of RSS feeds active on dashboard.</div>
+              <div class="card">
+                <div class="card-body">
+                  <div class="h1 text-muted text-right mb-4">
+                    <i class="fa fa-rss"></i>
                   </div>
-                  <div class="chart-wrapper mt-3 mx-3" style="height:70px;">
-                    <div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
-                      <div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
-                        <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
-                      </div>
-                      <div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
-                        <div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
-                      </div>
-                    </div>
-                    <canvas class="chart chartjs-render-monitor" id="card-chart2" height="70" style="display: block; width: 355px; height: 70px;" width="355"></canvas>
+                  <div class="text-value">{{rssCountActive}}</div>
+                  <small class="text-muted text-uppercase font-weight-bold">active feeds</small>
+                  <div class="progress progress-xs mt-3 mb-0">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: {{rssCountActive}}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
                 </div>
               </div>
-              <div class="col-sm-6 col-lg-3">
-                <div class="card text-white bg-warning">
-                  <div class="card-body pb-0">
-                    <div class="btn-group float-right">
-                      <button class="btn btn-transparent dropdown-toggle p-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="icon-settings"></i>
-                      </button>
-                      <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                      </div>
-                    </div>
-                    <div class="text-value">9.823</div>
-                    <div>Members online</div>
+              <div class="card">
+                <div class="card-body">
+                  <div class="h1 text-muted text-right mb-4">
+                    <i class="fa fa-download"></i>
                   </div>
-                  <div class="chart-wrapper mt-3" style="height:70px;">
-                    <div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
-                      <div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
-                        <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
-                      </div>
-                      <div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
-                        <div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
-                      </div>
-                    </div>
-                    <canvas class="chart chartjs-render-monitor" id="card-chart3" height="70" style="display: block; width: 387px; height: 70px;" width="387"></canvas>
+                  <div class="text-value">5</div>
+                  <small class="text-muted text-uppercase font-weight-bold">Crawl targets</small>
+                  <div class="progress progress-xs mt-3 mb-0">
+                    <div class="progress-bar bg-warning" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
                 </div>
               </div>
-              <div class="col-sm-6 col-lg-3">
-                <div class="card text-white bg-danger">
-                  <div class="card-body pb-0">
-                    <div class="btn-group float-right">
-                      <button class="btn btn-transparent dropdown-toggle p-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="icon-settings"></i>
-                      </button>
-                      <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                      </div>
-                    </div>
-                    <div class="text-value">9.823</div>
-                    <div>Members online</div>
+              <div class="card">
+                <div class="card-body">
+                  <div class="h1 text-muted text-right mb-4">
+                    <i class="fa fa-bullseye"></i>
                   </div>
-                  <div class="chart-wrapper mt-3 mx-3" style="height:70px;">
-                    <div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
-                      <div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
-                        <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
-                      </div>
-                      <div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
-                        <div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
-                      </div>
-                    </div>
-                    <canvas class="chart chartjs-render-monitor" id="card-chart4" height="70" style="display: block; width: 355px; height: 70px;" width="355"></canvas>
+                  <div class="text-value">10</div>
+                  <small class="text-muted text-uppercase font-weight-bold">WIP idea's</small>
+                  <div class="progress progress-xs mt-3 mb-0">
+                    <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  <div class="h1 text-muted text-right mb-4">
+                    <i class="fa fa-bullseye"></i>
+                  </div>
+                  <div class="text-value">{{"now"|date('H:i:s')}}</div>
+                  <small class="text-muted text-uppercase font-weight-bold">{{ "now"|date("m/d/Y") }}</small>
+                  <div class="progress progress-xs mt-3 mb-0">
+                    <div class="progress-bar bg-danger" role="progressbar" style="width: {{"now"|date('H') * 4.16}}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
                 </div>
               </div>
             </div>
-          -->
+
             <div class="row">
               {% for feeds in rssEnt %}
                 {% set url = feeds.feedUrl %}
@@ -153,7 +96,9 @@
                       <div class="card-header">
                         <strong>{{feeds.feedName}}</strong>
                         <span class="label label-info">
-                          <a href="/edit/rss/{{feeds.id}}/edit"><i class="fa fa-edit">Edit</i></a>
+                          <a href="/edit/rss/{{feeds.id}}/edit">
+                            <i class="fa fa-edit">Edit</i>
+                          </a>
                         </span>
                       </div>
                       <div class="card-body">

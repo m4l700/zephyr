@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Crawlersetting</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ crawlersetting.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ crawlersetting.name }}</td>
+            </tr>
+            <tr>
+                <th>Productclass</th>
+                <td>{{ crawlersetting.productclass }}</td>
+            </tr>
+            <tr>
+                <th>Titleclass</th>
+                <td>{{ crawlersetting.titleclass }}</td>
+            </tr>
+            <tr>
+                <th>Descriptionclass</th>
+                <td>{{ crawlersetting.descriptionclass }}</td>
+            </tr>
+            <tr>
+                <th>Priceclass</th>
+                <td>{{ crawlersetting.priceclass }}</td>
+            </tr>
+            <tr>
+                <th>Active</th>
+                <td>{% if crawlersetting.active %}Yes{% else %}No{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('settings_crawler_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('settings_crawler_edit', { 'id': crawlersetting.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

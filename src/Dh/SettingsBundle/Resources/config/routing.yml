@@ -10,3 +10,6 @@ dh_settings_backup:
 dh_settings_backup_create:
       path:     /backup/create
       defaults: { _controller: DhSettingsBundle:Default:backupcreate }
+dh_settings_runcrawler:
+      path:     /runcrawler
+      defaults: { _controller: DhSettingsBundle:Default:runcrawler }
