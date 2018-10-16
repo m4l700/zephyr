@@ -32,8 +32,8 @@ class Crawler
     $xpath = new \DOMXPath($doc);
     $internalErrors = libxml_use_internal_errors(true);
     //Query to search for(div)
-    $query = "//div[@class='$searchTerm']";
-
+    //$query = "//div[@class='$searchTerm']";
+    $query = "//*[@class='$searchTerm']"; //Searchs for all elements with this class.
     $entries = $xpath->query($query);
 
     $i=0;

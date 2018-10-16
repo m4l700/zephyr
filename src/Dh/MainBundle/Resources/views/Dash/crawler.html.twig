@@ -5,10 +5,12 @@
   <ol class="breadcrumb">
     <li class="breadcrumb-item">Home</li>
     <li class="breadcrumb-item active">Dashboard</li>
-    <li class="breadcrumb-item active">General settings</li>
-    <li class="breadcrumb-item active">Crawler settings</li>
+    <li class="breadcrumb-item active">Crawler Results({{crawler|length}})</li>
     <li class="breadcrumb-menu d-md-down-none">
       <div class="btn-group" role="group" aria-label="Button group">
+        <a class="btn" href="{{path('dh_settings_runcrawler')}}">
+          <i class="fa fa-download"></i>
+          &nbsp;Run crawler</a>
         <a class="btn" href="{{path('dh_settings_index')}}">
           <i class="fa fa-cogs"></i>
           &nbsp;Settings</a>
@@ -19,11 +21,24 @@
     <div id="ui-view">
       <div>
         <div class="animated fadeIn">
-          {% for item in crawler %}
-            {{item.text|join(', ')|nl2br}}
-            </br>
-            </br>
-          {% endfor %}
+          <div class="row">
+            {% for crawled in crawler %}
+                <div class="col-sm-6 col-xl-6">
+                  <div class="card card-id-{{crawled.id}}">
+                    <div class="card-header">
+                      <strong>{{crawled.name|trim('[" "]')|capitalize}}</strong>
+                      <label for=""> ID:#{{crawled.id}}</label>
+                    </div>
+                    <div class="card-body">
+                      <div class="list-group">
+                        {{crawled.text|join(', ')|trim('" "')|replace({ "\n": "" })}}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            {% endfor %}
+          </div>
+
         </div>
       </div>
     </div>

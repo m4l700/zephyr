@@ -28,6 +28,13 @@ class Crawlerdata
      */
     private $text;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="text", nullable=true)
+     */
+    private $name;
+
 
     /**
      * Get id
@@ -62,5 +69,28 @@ class Crawlerdata
     {
         return $this->text;
     }
-}
 
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Crawlerdata
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+}

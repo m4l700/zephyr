@@ -159,8 +159,7 @@ class DefaultController extends Controller
       //Get crawlersettings from DB
       $em = $this->getDoctrine()->getManager();
       $crawlerRepo = $em->getRepository('DhSettingsBundle:Crawlerdata');
-      $crawlerAll = $crawlerRepo->findAll();
-
+      $crawlerAll = $crawlerRepo->findBy(array(), array("id" => "DESC"), 35);
 
       //Renders template
       return $this->render('DhMainBundle:Dash:crawler.html.twig',array(

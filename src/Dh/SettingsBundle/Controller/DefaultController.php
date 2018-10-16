@@ -98,40 +98,35 @@ class DefaultController extends Controller
     $crawlerAll = $crawlerRepo->findBy(array("active" => "1"));
     foreach ($crawlerAll as $key) {
       $crawlId = $key->id;
-      $crawlName = $key->name;
+      $crawlName = explode(" ", $key->name);
       $crawlUrl = $key->crawlurl;
       $crawlProductclass = $key->productclass;
       $crawler = new Crawler($crawlUrl);
       $crawl[] = $crawler->crawler($crawlProductclass);
+      $nameToDb[] = $crawlName;
     }
 
     $i=0;
     foreach($crawl as $crawlitem){
-      $columns = implode(",", array_keys($crawl[$i]));
-      $escaped_values = array_values($crawl[$i]);
+      $escapedCrawlValues = array_values($crawl[$i]);
+      $escapedCrawlNames = array_values($nameToDb[$i]);
+
       //ToDo, put name(crawled location) into DB.
-      foreach ($escaped_values as $keyCrawl) {
-        $encoded = json_encode($keyCrawl);
-        $trimmed = str_replace("\\n", "", $encoded);
-        $trimmed = str_replace("\\r", "", $encoded);
-        $trimmed = str_replace("\\t", "", $encoded);
+      foreach ($escapedCrawlValues as $keyCrawl) {
+        $encodedCrawl = json_encode($keyCrawl);
+        $encodedNames = json_encode($escapedCrawlNames);
+        $trimmed = str_replace("\n", "", $encodedCrawl);//WIP to remove spaces and newLines.
+        $trimmed = str_replace("\r", "", $encodedCrawl);//WIP to remove spaces and newLines.
+        $trimmed = str_replace("\t", "", $encodedCrawl);//WIP to remove spaces and newLines.
+
         //Put in DB
         $crawlerDB = new Crawlerdata;
         $crawlerDB->setText($trimmed);
+        $crawlerDB->setName($encodedNames);
         $em->persist($crawlerDB);
         $em->flush();
       }
-
       $i++;
-      //Put into DB
-      //$sql = "INSERT INTO `crawlerdata` (`id`, `text`) VALUES (NULL, '$encoded')";
-      //var_dump($escaped_values);
-      //die();
-      //$query = $em->createQuery($sql);
-      //$crawlerDB = new Crawlerdata;
-      //$crawlerDB->setText($encoded);
-      //$em->persist($crawlerDB);
-      //$em->flush();
     }
 
     if($crawlerDB){
@@ -145,3 +140,12 @@ class DefaultController extends Controller
 
 
 }
+
+
+/*
+$test = array_values($nameToDb);
+foreach($test as $name) {
+  $nameDB = $name;
+  $crawlerDB->setName($nameDB);
+}
+*/
