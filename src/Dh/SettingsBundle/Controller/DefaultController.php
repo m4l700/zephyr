@@ -106,22 +106,32 @@ class DefaultController extends Controller
       $nameToDb[] = $crawlName;
     }
 
+    //Query to remove previous data in DB
+    $queryDB = $em->createQuery('DELETE FROM DhSettingsBundle:Crawlerdata');
+    $dbDelete = $queryDB->execute();
+
     $i=0;
     foreach($crawl as $crawlitem){
       $escapedCrawlValues = array_values($crawl[$i]);
       $escapedCrawlNames = array_values($nameToDb[$i]);
+      $trimmedValues = str_replace("\n", "", $escapedCrawlValues);//WIP to remove spaces and newLines.
+      $trimmedValues = str_replace("\r", "", $trimmedValues);//WIP to remove spaces and newLines.
+      $trimmedValues = str_replace("\t", "", $trimmedValues);//WIP to remove spaces and newLines.
+      $trimmedValues = preg_replace("/\r+|\n+/", "", $trimmedValues);
 
-      //ToDo, put name(crawled location) into DB.
-      foreach ($escapedCrawlValues as $keyCrawl) {
+      $trimmedNames = str_replace("\n", "", $escapedCrawlNames);//WIP to remove spaces and newLines.
+      $trimmedNames = str_replace("\r", "", $trimmedNames);//WIP to remove spaces and newLines.
+      $trimmedNames = str_replace("\t", "", $trimmedNames);//WIP to remove spaces and newLines.
+      $trimmedNames = preg_replace("/\r+|\n+/", "", $trimmedNames);
+
+      //ToDo, put name(crawled location) into DB --> Done.
+      foreach ($trimmedValues as $keyCrawl) {
         $encodedCrawl = json_encode($keyCrawl);
         $encodedNames = json_encode($escapedCrawlNames);
-        $trimmed = str_replace("\n", "", $encodedCrawl);//WIP to remove spaces and newLines.
-        $trimmed = str_replace("\r", "", $encodedCrawl);//WIP to remove spaces and newLines.
-        $trimmed = str_replace("\t", "", $encodedCrawl);//WIP to remove spaces and newLines.
 
         //Put in DB
         $crawlerDB = new Crawlerdata;
-        $crawlerDB->setText($trimmed);
+        $crawlerDB->setText($encodedCrawl);
         $crawlerDB->setName($encodedNames);
         $em->persist($crawlerDB);
         $em->flush();
@@ -140,12 +150,3 @@ class DefaultController extends Controller
 
 
 }
-
-
-/*
-$test = array_values($nameToDb);
-foreach($test as $name) {
-  $nameDB = $name;
-  $crawlerDB->setName($nameDB);
-}
-*/

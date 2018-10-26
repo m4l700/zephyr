@@ -19,7 +19,7 @@ class Crawler
     $str = file_get_contents($url);
   }
 
-  public function crawler($searchTerm, $crawlLimit=7) {
+  public function crawler($searchTerm, $crawlLimit=8) {
     $doc = new \DOMDocument;
     $doc->preserveWhiteSpace = false;
     $doc->strictErrorChecking = false;
