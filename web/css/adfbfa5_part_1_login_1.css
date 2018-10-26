@@ -5,11 +5,12 @@ body {
 .card.card-container {
     max-width: 350px;
     padding: 40px 40px;
+    box-shadow: 0px 0px 29px 8px;
 }
 .card {
-    background-color: #F7F7F7;
+    background-color: white;
     margin: 0 auto;
-    border-radius: 3px;
+    /* border-radius: 3px; */
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
 }
 .profile-img-card {
@@ -58,23 +59,15 @@ body {
     box-sizing: border-box;
 }
 .form-control {
-    display: block;
-    width: 100%;
-    height: 34px;
-    padding: 6px 12px;
-    font-size: 14px;
-    line-height: 1.42857143;
-    margin-bottom: 10px;
-    color: #555;
-    background-color: #fff;
-    background-image: none;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
-    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+      background-color: white;
+      outline: 0;
+      background: #f2f2f2;
+      width: 100%;
+      border: 0;
+      margin: 0 0 15px;
+      padding: 15px;
+      box-sizing: border-box;
+      font-size: 14px;
 }
 .btn.btn-signin {
     /* background-color: #4d90fe; */
@@ -86,14 +79,20 @@ body {
     height: 36px;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
-    border-radius: 3px;
+    border-radius: 0px;
     border: none;
     -o-transition: all 0.218s;
     -moz-transition: all 0.218s;
     -webkit-transition: all 0.218s;
     transition: all 0.218s;
     width: 100%;
+    text-transform: uppercase;
 }
+
+.btn.btn-signin:hover {
+    background: rgb(91, 127, 142);
+}
+
 input#remember_me {
     margin: 0 auto;
 }
